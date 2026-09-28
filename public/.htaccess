@@ -1,0 +1,8 @@
+Options -MultiViews
+RewriteEngine On
+
+# Serve real files and directories normally; send all React routes to Vite's entry point.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^ index.html [L]

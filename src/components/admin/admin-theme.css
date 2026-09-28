@@ -1,0 +1,85 @@
+/* ZeeScents Admin — design tokens (v3: Charcoal / Cream / Gold) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --zs-charcoal: #17140F;
+  --zs-charcoal-soft: #4B463F;
+  --zs-page-bg: #F1EFEA;
+  --zs-cream: #F1EFEA;
+  --zs-beige: #F6F4EF;
+  --zs-beige-line: #E7E3D9;
+
+  --zs-primary: #FF5A1F;       /* accent for alerts/actions that aren't "brand gold" */
+  --zs-primary-soft: #FFE7DA;
+
+  --zs-gold: #C6952F;          /* brand gold — primary CTA / active states */
+  --zs-gold-soft: #F5E9CE;
+  --zs-gold-dark: #A6791F;
+
+  --zs-white: #FFFFFF;
+  --zs-ink-60: rgba(23, 20, 15, 0.6);
+  --zs-ink-40: rgba(23, 20, 15, 0.4);
+  --zs-danger: #D9432B;
+  --zs-success: #2E9E5B;
+
+  --zs-font-display: 'Inter', -apple-system, sans-serif;
+  --zs-font-body: 'Inter', -apple-system, sans-serif;
+
+  --zs-shadow: 0 1px 2px rgba(23, 20, 15, 0.04), 0 8px 24px -12px rgba(23, 20, 15, 0.12);
+}
+
+.zs-root.dark {
+  --zs-page-bg: #0E0C0A;
+  --zs-cream: #0E0C0A;
+  --zs-beige: #17140F;
+  --zs-beige-line: #2A241C;
+  --zs-charcoal: #F1EFEA;
+  --zs-charcoal-soft: #A39E96;
+  --zs-white: #1A1611;
+
+  --zs-gold: #E0B054;
+  --zs-gold-soft: rgba(224, 176, 84, 0.14);
+  --zs-gold-dark: #C6952F;
+
+  --zs-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+}
+
+.zs-root {
+  font-family: var(--zs-font-body);
+  background: var(--zs-page-bg);
+  color: var(--zs-charcoal);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.zs-display {
+  font-family: var(--zs-font-display);
+  letter-spacing: -0.015em;
+}
+
+.bg-zs-page { background: var(--zs-page-bg); }
+.bg-zs-beige { background: var(--zs-beige); }
+.border-zs-beigeLine { border-color: var(--zs-beige-line); }
+.text-zs-charcoal { color: var(--zs-charcoal); }
+.text-zs-danger { color: var(--zs-danger); }
+
+.bg-zs-gold { background: var(--zs-gold); }
+.text-zs-gold { color: var(--zs-gold); }
+.border-zs-gold { border-color: var(--zs-gold); }
+.bg-zs-gold\/15 { background: var(--zs-gold-soft); }
+.ring-zs-gold { --tw-ring-color: var(--zs-gold); }
+
+.bg-zs-danger { background: var(--zs-danger); }
+.bg-zs-danger\/90 { background: color-mix(in srgb, var(--zs-danger) 90%, transparent); }
+.bg-zs-charcoal { background: var(--zs-charcoal); }
+.bg-zs-charcoal-soft,
+.bg-zs-charcoalSoft { background: var(--zs-charcoal-soft); }
+.shadow-zs { box-shadow: var(--zs-shadow); }
+
+.zs-root :focus-visible {
+  outline: 2px solid var(--zs-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zs-root * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
