@@ -202,7 +202,7 @@ export async function getOrderMoney(orderId) { return data(apiClient.get(`/finan
 export async function getPayments() { return data(apiClient.get("/payments/admin/all")); }
 export async function verifyPayment(id, approve) { return data(apiClient.patch(`/payments/admin/${id}/verify`, { approve })); }
 
-const defaultSettings = { store: { name: "ZeeScents", supportEmail: "", phone: "", address: "" }, shipping: { flatRate: 200, freeThreshold: 0, codEnabled: true }, tax: { taxPercent: 0, taxInclusive: true }, notifications: { orderEmails: true, orderEmailRecipient: "", lowStockAlerts: true, marketingEmails: false }, returns: { windowDays: 30, shipByDays: 14, returnAddress: "", instructions: "", storeCreditBonusPercent: 0 }, inventory: { unpaidHoldMinutes: 60, lowStockThreshold: 5 } };
+const defaultSettings = { store: { name: "ZeeScents", supportEmail: "", phone: "", address: "" }, shipping: { flatRate: 200, freeThreshold: 0, codEnabled: true, cardWalletEnabled: true }, tax: { taxPercent: 0, taxInclusive: true }, notifications: { orderEmails: true, orderEmailRecipient: "", lowStockAlerts: true, marketingEmails: false }, returns: { windowDays: 30, shipByDays: 14, returnAddress: "", instructions: "", storeCreditBonusPercent: 0 }, inventory: { unpaidHoldMinutes: 60, lowStockThreshold: 5 } };
 // One level deeper than a plain spread — a section (or a nested key within
 // it, like payment.jazzcash) saved in an earlier/partial shape shouldn't
 // wipe out the rest of that section's defaults and crash the form.

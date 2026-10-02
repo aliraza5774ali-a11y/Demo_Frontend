@@ -60,7 +60,16 @@ const Checkout = () => {
   const [demoWallet, setDemoWallet] = useState(null);
   const [chosenMethod, setChosenMethod] = useState(null);
 
-  const methods = [safepayOnline && "safepay", jazzCashOnline && "jazzcash", "cod"].filter(Boolean);
+  // Admin → Settings → Payment methods → "Card / Wallet". When it is off the
+  // Card / Wallet option is hidden at checkout. A missing value (older backend
+  // or a not-yet-loaded store config) counts as on, so nothing changes until
+  // the admin switches it off.
+  const cardWalletEnabled = useSelector((state) => state.site?.storeInfo?.shipping?.cardWalletEnabled) !== false;
+  const methods = [
+    cardWalletEnabled && safepayOnline && "safepay",
+    jazzCashOnline && "jazzcash",
+    "cod",
+  ].filter(Boolean);
   const paymentMethod = methods.includes(chosenMethod) ? chosenMethod : methods[0];
 
   const [submitting, setSubmitting] = useState(false);

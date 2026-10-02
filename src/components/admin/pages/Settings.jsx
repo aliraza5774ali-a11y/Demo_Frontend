@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { User, KeyRound, Store, Truck, Percent, Bell, Undo2, Boxes } from "lucide-react";
+import { User, KeyRound, Store, Truck, Percent, Bell, Undo2, Boxes, CreditCard } from "lucide-react";
 import { PageHeader } from "../components/ui/PageHeader";
 import { FormField, TextArea, TextInput } from "../components/ui/FormField";
 import { Button } from "../components/ui/Button";
@@ -198,6 +198,10 @@ export const Settings = () => {
             <TextInput id="sh-threshold" type="number" min="0" value={form.shipping.freeThreshold} onChange={(e) => update("shipping", "freeThreshold", Number(e.target.value))} />
           </FormField>
           <div className="mb-4"><Toggle label="Allow cash on delivery" description="Customers can pay when the order arrives." checked={form.shipping.codEnabled} onChange={(v) => update("shipping", "codEnabled", v)} /></div>
+        </SectionCard>
+
+        <SectionCard icon={CreditCard} title="Payment methods" description="Choose which payment options customers see at checkout." onSubmit={save("shipping")} saving={saving === "shipping"}>
+          <div className="mb-4"><Toggle label="Card / Wallet" description="On: customers can pay by card or mobile wallet (SafePay) at checkout, alongside cash on delivery. Off: this option is hidden and only cash on delivery is shown." checked={form.shipping.cardWalletEnabled !== false} onChange={(v) => update("shipping", "cardWalletEnabled", v)} /></div>
         </SectionCard>
 
         <SectionCard icon={Percent} title="Tax" description="Applied at checkout across all orders." onSubmit={save("tax")} saving={saving === "tax"}>
